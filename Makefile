@@ -1,4 +1,5 @@
 install:
-	npm ci
+	npm ci;
+	npm link;
 gendiff:
-	node bin/gendiff.js
+	node bin/gendiff.js;
