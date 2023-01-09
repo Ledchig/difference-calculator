@@ -1,2 +1,3 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Ledchig/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Ledchig/frontend-project-46/actions)
+<a href="https://codeclimate.com/github/Ledchig/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/da5629fc7fe1ef908806/maintainability" /></a>
