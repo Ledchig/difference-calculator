@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+/* eslint-disable import/extensions */
 import { Command } from 'commander';
-import genDiff from '../index';
+import genDiff from '../index.js';
 
 const program = new Command();
 
