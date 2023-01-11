@@ -1,11 +1,11 @@
 import fs from 'fs';
-import compareData from './src/compareData.js';
-import genPath from './src/genPath.js';
+import compareData from './src/compareData';
+import genPath from './src/genPath';
 
 const genDiff = (filepath1, filepath2) => {
   const data1 = JSON.parse(fs.readFileSync(genPath(filepath1)));
   const data2 = JSON.parse(fs.readFileSync(genPath(filepath2)));
-  
+
   const difference = compareData(data1, data2);
   return difference;
 };
