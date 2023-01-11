@@ -6,4 +6,4 @@ gendiff:
 lint:
 	npx eslint .;
 test:
-	npx jest;
+	npm run test-coverage;
