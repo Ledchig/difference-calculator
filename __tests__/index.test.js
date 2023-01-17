@@ -23,6 +23,6 @@ test.each([
 
 test('Error while ext is unknown format', () => {
   expect(() => {
-    genDiff(getFixturePath('file1.ext'), getFixturePath('file2.ext')); 
+    genDiff(getFixturePath('file1.ext'), getFixturePath('file2.ext'));
   }).toThrow('Unknown format - .ext');
 });
