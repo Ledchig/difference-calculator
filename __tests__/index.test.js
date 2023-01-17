@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable import/no-extraneous-dependencies */
 
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
@@ -12,10 +11,18 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
 
-test('', () => {
-  const filePath1 = getFixturePath('file1.json');
-  const filePath2 = getFixturePath('file2.json');
-  const received = genDiff(filePath1, filePath2);
-  const expected = readFileSync(getFixturePath('trueResult.json'), { encoding: 'utf-8' });
+test.each([
+  ['file1.json', 'file2.json', 'trueResult.json'],
+  ['file1.yml', 'file2.yml', 'trueResult.json'],
+  ['file1.yaml', 'file2.yaml', 'trueResult.json'],
+])('compare %p %p %p', (file1, file2, result) => {
+  const received = genDiff(getFixturePath(file1), getFixturePath(file2));
+  const expected = readFileSync(getFixturePath(result), { encoding: 'utf-8' });
   expect(received).toEqual(expected);
+});
+
+test('Error while ext is unknown format', () => {
+  expect(() => {
+    genDiff(getFixturePath('file1.ext'), getFixturePath('file2.ext')); 
+  }).toThrow('Unknown format - .ext');
 });

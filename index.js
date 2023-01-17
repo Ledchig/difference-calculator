@@ -1,14 +1,16 @@
-/* eslint-disable import/extensions */
 import fs from 'fs';
+import path from 'path';
 import compareData from './src/compareData.js';
 import genPath from './src/genPath.js';
+import parse from './src/parser.js';
 
-const genDiff = (filepath1, filepath2) => {
-  const data1 = JSON.parse(fs.readFileSync(genPath(filepath1), { encoding: 'utf-8' }));
-  const data2 = JSON.parse(fs.readFileSync(genPath(filepath2), { encoding: 'utf-8' }));
+const getData = (filePath) => fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf8');
+const getFileExt = (filePath) => path.extname(filePath);
+
+export default (filepath1, filepath2) => {
+  const data1 = parse(getData(genPath(filepath1)), getFileExt(filepath1));
+  const data2 = parse(getData(genPath(filepath2)), getFileExt(filepath2));
 
   const difference = compareData(data1, data2);
   return difference;
 };
-
-export default genDiff;
