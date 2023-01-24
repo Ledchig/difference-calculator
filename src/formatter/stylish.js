@@ -25,8 +25,8 @@ const makeStylish = (data) => {
         return `${keyIndent}- ${node.name}: ${stringify(node.value, depth + 1)}`;
       }
       if (node.type === 'changed') {
-        return (`${keyIndent}- ${node.name}: ${stringify(node.value, depth)}\n`
-        + `${keyIndent}+ ${node.name}: ${stringify(node.newValue, depth + 1)}`);
+        return (`${keyIndent}- ${node.name}: ${stringify(node.value, depth + 1)}\n`
+        + `${keyIndent}+ ${node.name}: ${stringify(node.newValue, depth)}`);
       }
       if (node.type === 'nested') {
         return `${keyIndent}  ${node.name}: {\n`

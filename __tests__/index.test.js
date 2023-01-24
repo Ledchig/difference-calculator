@@ -12,9 +12,9 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
 
 test.each([
-  ['file1.json', 'file2.json', 'trueResult.json'],
-  ['file1.yml', 'file2.yml', 'trueResult.json'],
-  ['file1.yaml', 'file2.yaml', 'trueResult.json'],
+  ['file1.json', 'file2.json', 'trueResult.txt'],
+  ['file1.yml', 'file2.yml', 'trueResult.txt'],
+  ['file1.yaml', 'file2.yaml', 'trueResult.txt'],
 ])('compare %p %p %p', (file1, file2, result) => {
   const received = genDiff(getFixturePath(file1), getFixturePath(file2));
   const expected = readFileSync(getFixturePath(result), { encoding: 'utf-8' });
