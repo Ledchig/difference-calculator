@@ -5,6 +5,6 @@ export default (data, format) => {
     case 'stylish':
       return makeStylish(data);
     default:
-      throw new Error(`${format} is not supported.`);
+      throw new Error(`${format} format is incorrect or not supported.`);
   }
 };
