@@ -6,14 +6,14 @@ const stringify = (node, depth) => {
   const indent = getIndent(depth);
   const closeIndent = getIndent(depth - 1);
   if (!_.isObject(node)) {
-    return `${node}`;
+    return String(node);
   }
   const lines = Object.entries(node)
     .map(([name, value]) => `${indent}${name}: ${stringify(value, depth + 1)}`);
   return ['{', ...lines, `${closeIndent}}`].join('\n');
 };
 
-const makeStylish = (data) => {
+export default (data) => {
   const iter = (tree, depth) => {
     const indent = getIndent(depth);
     const keyIndent = indent.slice(2);
@@ -38,5 +38,3 @@ const makeStylish = (data) => {
   };
   return ['{', ...iter(data, 1), '}'].join('\n');
 };
-
-export default makeStylish;
