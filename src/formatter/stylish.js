@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const getIndent = (depth) => '    '.repeat(depth);
+const getIndent = (depth) => ' '.repeat(4 * depth);
 
 const stringify = (node, depth) => {
   const indent = getIndent(depth);

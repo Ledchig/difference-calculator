@@ -18,6 +18,7 @@ test.each([
   ['file1.json', 'file2.json', 'plain', 'trueResultPlain.txt'],
   ['file1.yml', 'file2.yml', 'plain', 'trueResultPlain.txt'],
   ['file1.yaml', 'file2.yaml', 'plain', 'trueResultPlain.txt'],
+  ['file1.yml', 'file2.yml', 'json', 'trueResultJson.txt'],
 ])('compare %p %p %p', (file1, file2, format, result) => {
   const received = genDiff(getFixturePath(file1), getFixturePath(file2), format);
   const expected = readFileSync(getFixturePath(result), { encoding: 'utf-8' });
