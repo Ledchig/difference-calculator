@@ -6,7 +6,7 @@
 
 Gendiff is a program that finds the difference between two files. 
 
-Supports output formats: json (default), stylish and plain.
+Supports output formats: stylish (default), json and plain.
 
 ### How to install:
 
@@ -20,7 +20,7 @@ If you need help, type `gendiff -h`.
 
 ### Examples:
 
-With default or json format:
+With json format:
 
 [![asciicast](https://asciinema.org/a/561550.svg)](https://asciinema.org/a/561550)
 
