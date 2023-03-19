@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { test, expect } from '@jest/globals';
 import { fileURLToPath } from 'url';
-import genDiff from '../index.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,6 +39,6 @@ test('Error while ext is unknown format', () => {
 
 test('Error while format incorrect or not supported', () => {
   expect(() => {
-    genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stigish');
-  }).toThrow('stigish format is incorrect or not supported.');
+    genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stilish');
+  }).toThrow('stilish format is incorrect or not supported.');
 });

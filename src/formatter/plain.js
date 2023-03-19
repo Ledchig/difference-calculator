@@ -4,7 +4,7 @@ const stringify = (node) => {
   if (_.isObject(node)) {
     return '[complex value]';
   }
-  return _.isString(node) ? `'${node}'` : node;
+  return _.isString(node) ? `'${node}'` : String(node);
 };
 
 export default (data) => {

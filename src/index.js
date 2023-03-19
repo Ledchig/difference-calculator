@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import compareData from './src/compareData.js';
-import parse from './src/parser.js';
-import formatter from './src/formatter/index.js';
+import compareData from './compareData.js';
+import parse from './parser.js';
+import formatter from './formatter/index.js';
 
 const getData = (filePath) => fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf8');
 const getFileExt = (filePath) => path.extname(filePath);
